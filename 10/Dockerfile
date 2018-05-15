@@ -10,9 +10,8 @@ RUN apt-get update -qq \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 # Oracle JDK
-ENV ORACLE_JDK_VERSION jdk-10
-ENV ORACLE_JDK_URL http://download.oracle.com/otn-pub/java/jdk/10+46/76eac37278c24557a3c4199677f19b62/jdk-10_linux-x64_bin.tar.gz
-
+ENV ORACLE_JDK_VERSION jdk-10.0.1
+ENV ORACLE_JDK_URL http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz
 RUN mkdir -p /opt/jdk/$ORACLE_JDK_VERSION && \
     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /opt/jdk/$ORACLE_JDK_VERSION/$ORACLE_JDK_VERSION.tar.gz $ORACLE_JDK_URL && \
     tar -zxf /opt/jdk/$ORACLE_JDK_VERSION/$ORACLE_JDK_VERSION.tar.gz --strip-components=1 -C /opt/jdk/$ORACLE_JDK_VERSION && \
